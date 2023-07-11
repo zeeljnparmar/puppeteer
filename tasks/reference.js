@@ -309,7 +309,6 @@ async function add_new_master(page){
 async function pro_govern(page){
   // let product = await page.waitForSelector('#ul-menu2 > a > div > div.d-flex.align-items-center > span')
   // await product.click();
-
   // let governanace = await page.waitForXPath(`//*[@id="menu2"]/div/div/a[contains(text(),'Governance')]`)
   // await governanace.click();
   // let Product = await page.waitForXPath(`//li[@id="ul-menu2"]//span[contains(text(),"Product")]`);

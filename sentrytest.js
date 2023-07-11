@@ -76,3 +76,14 @@ app.listen('3000',()=>{
 })
 
 transaction.finish();
+await page.waitForTimeout(2000);
+    func.backtomaster(page)
+    await page.waitForTimeout(2000);
+    catt.add(page,0);
+    await page.waitForTimeout(2000);
+    let values='Add Level'
+    func.setting(page,values)
+    for(let i=1;i<2;i++){
+       Sibling.addlevel(page,i);
+    }
+//div[@class="d-flex justify-content-between"]/input[@value="sku_name"]

@@ -1,0 +1,57 @@
+async function editform(page,i)
+  {
+    await page.waitForTimeout(2000);
+    await page.waitForSelector('#attribute_name')
+    await page.$eval('#attribute_name', (input) => (input.value = ''));
+    await page.type('#attribute',testcase.fields[i].group,{delay:10})
+    await page.waitForTimeout(2000);
+    await page.waitForSelector('#displayName');//working
+    await page.type('#displayName',testcase.fields[i].display,{delay:10});//working
+    await page.waitForTimeout(2000);
+    await page.waitForSelector('#length');//working
+    await page.type('#length',testcase.fields[i].length,{delay:10});//working
+    await page.waitForTimeout(2000);
+    let radio = await page.$x(`//*[@id="constraint"]`);
+    const tp = rand.random(0,1);
+    console.log(i);
+    await radio[tp].click();
+    if(tp===1){
+      await page.waitForTimeout(2000);
+      // await page.click('#referenceMaster');
+      let reference=await page.$(`[name='referenceMaster']`)
+      await reference.type(testcase.fields[i].master)
+      await page.waitForTimeout(2000);
+      // await page.click('#referenceAttribute');
+      let referenceattribut=await page.$(`[name='referenceAttribute']`)
+      await referenceattribut.type(testcase.fields[i].refrence)
+    }
+    await page.waitForTimeout(1000);
+    let field=await page.$(`[name='type']`)
+    await field.type(testcase.fields[i].type);
+    await page.waitForTimeout(1000);
+    let fieldtype=await page.$(`[name='dataType']`)
+    await fieldtype.type(testcase.fields[i].datatype);  
+    await page.waitForTimeout(1000);
+    let mandoatory=await page.waitForXPath(`//*[@id="mandatory"]`);
+    await mandoatory.click();
+    await page.waitForTimeout(1000);
+    let edit=await page.waitForXPath(`//*[@id="editability"]`);
+    await edit.click();
+    let def=await page.waitForXPath(`//*[@id="default"]`);
+    await def.click();
+    await page.waitForTimeout(1000);  
+    let putin= await page.waitForXPath(`//input[@placeholder="Enter Value" and @id]`);
+    await putin.type(testcase.fields[i].default);
+    await page.waitForTimeout(1000);
+    let panel=await page.waitForXPath(`//*[@id="panel"]`);
+    await panel.click();
+    // await page.waitForTimeout(2000);
+    // panel=await page.waitForXPath(`//*[@id="search"]`);
+    // await panel.click();
+    await page.waitForTimeout(1000);
+    panel = await page.waitForXPath(`//button[@type='submit']//span[contains(text(),'Add')]/..`);
+    await panel.click();
+}
+module.exports={
+    editform
+}

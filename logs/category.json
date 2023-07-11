@@ -1,0 +1,59 @@
+{
+    "category":[
+        {
+            "name":"Zeel",
+            "field":[
+                {
+                    "sub":"sofa"
+                },
+                {
+                    "sub":"drape"
+                }
+            ]
+        },
+        {
+            "name":"sofa"
+        },
+        {
+            "name":"drape"
+        }
+    ],
+    "fields":[
+        {
+            "group":"abc",
+            "attribute":"sample",
+            "display":"Sample",
+            "length":"20",
+            "master":"Country Master",
+            "refrence":"Country code",
+            "type":"Richtext",
+            "datatype":"Varchar",
+            "default":"5"
+        },
+        {
+            "group":"zeel",
+            "attribute":"attribute",
+            "display":"DIsplay Name",
+            "length":"120",
+            "master":"Country Master",
+            "refrence":"Country code",
+            "type":"Richtext",
+            "datatype":"Varchar",
+            "default":"20"
+        }
+    ],
+    "form":[
+        {
+            "code":"12345",
+            "product":"automobile",
+            "car":"normal",
+            "suv":"4x4",
+            "sedan":"family",
+            "paint":"black"           
+        }
+    ],
+    "rule":[
+        {"name":"practice"}
+    ]
+
+}
